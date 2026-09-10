@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Jogo {
+
+    private Tabuleiro tabuleiro = new Tabuleiro();
+    private Scanner scanner = new Scanner(System.in);
+
+    public void iniciar() {
+        char jogadorAtual = 'X';
+        boolean fimDeJogo = false;
+        int jogadasFeitas = 0;
+
+        System.out.println("=== CONNECT 4 ===");
+        System.out.println("Jogador 1: X | Jogador 2: O");
+        System.out.println();
+
+        while (!fimDeJogo) {
+            tabuleiro.imprimir();
+            int j = lerColuna(jogadorAtual);
+
+            int i = tabuleiro.soltarPeca(j, jogadorAtual);
+            jogadasFeitas++;
+
+            if (tabuleiro.verificarVitoria(i, j, jogadorAtual)) {
+                tabuleiro.imprimir();
+                System.out.println("O jogador " + jogadorAtual + " venceu!");
+                fimDeJogo = true;
+            } else if (jogadasFeitas == Tabuleiro.LINHAS * Tabuleiro.COLUNAS) {
+                tabuleiro.imprimir();
+                System.out.println("Empate! O tabuleiro esta cheio.");
+                fimDeJogo = true;
+            } else {
+                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+            }
+        }
+
+        scanner.close();
+    }
+
+    private int lerColuna(char jogador) {
+        int j;
+        while (true) {
+            System.out.print("Jogador " + jogador + ", escolha uma coluna (1-" + Tabuleiro.COLUNAS + "): ");
+            String entrada = scanner.nextLine().trim();
+
+            try {
+                j = Integer.parseInt(entrada) - 1;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada invalida! Digite um numero entre 1 e " + Tabuleiro.COLUNAS + ".");
+                continue;
+            }
+
+            if (j < 0 || j >= Tabuleiro.COLUNAS) {
+                System.out.println("Coluna fora do intervalo! Digite um numero entre 1 e " + Tabuleiro.COLUNAS + ".");
+            } else if (tabuleiro.colunaCheia(j)) {
+                System.out.println("Essa coluna esta cheia! Escolha outra.");
+            } else {
+                return j;
+            }
+        }
+    }
+}
+ 
