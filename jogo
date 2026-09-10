@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Jogo {
+
+    public Tabuleiro tabuleiro = new Tabuleiro();
+    public Scanner scanner = new Scanner(System.in);
+
+    public void iniciar() {
+        char jogadorAtual = 'X';
+        boolean jogoFinalizado = false;
+        int jogadas = 0;
+
+        System.out.println("JOGO DA VELHA");
+        System.out.println("Jogador 1: X | Jogador 2: O");
+        System.out.println("As posicoes vao de 1 a 9, conforme o esquema abaixo:\n");
+        Tabuleiro.exibirEsquemaPosicoes();
+
+        while (!jogoFinalizado) {
+            tabuleiro.exibir();
+            System.out.println("Vez do jogador: " + jogadorAtual);
+            System.out.print("Escolha uma posicao (1-9): ");
+
+            int posicao;
+            try {
+                posicao = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada invalida! Digite um numero de 1 a 9.\n");
+                continue;
+            }
+
+            if (posicao < 1 || posicao > 9) {
+                System.out.println("Posicao invalida! Escolha um numero entre 1 e 9.\n");
+                continue;
+            }
+
+            int linha = (posicao - 1) / 3;
+            int coluna = (posicao - 1) % 3;
+
+            if (tabuleiro.posicaoOcupada(linha, coluna)) {
+                System.out.println("Posicao ja ocupada! Escolha outra.\n");
+                continue;
+            }
+
+            tabuleiro.marcar(linha, coluna, jogadorAtual);
+            jogadas++;
+
+            if (tabuleiro.verificarVitoria(jogadorAtual)) {
+                tabuleiro.exibir();
+                System.out.println("Jogador " + jogadorAtual + " venceu o jogo!");
+                jogoFinalizado = true;
+            } else if (jogadas == 9) {
+                tabuleiro.exibir();
+                System.out.println("O jogo empatou!");
+                jogoFinalizado = true;
+            } else {
+                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+            }
+        }
+
+        scanner.close();
+    }
