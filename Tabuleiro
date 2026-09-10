@@ -1,0 +1,68 @@
+public class Tabuleiro {
+    public static final int LINHAS = 6;
+    public static final int COLUNAS = 7;
+
+    private char[][] celulas = new char[LINHAS][COLUNAS];
+
+    public Tabuleiro() {
+        inicializar();
+    }
+
+    public void inicializar() {
+        for (int i = 0; i < LINHAS; i++) {
+            for (int j = 0; j < COLUNAS; j++) {
+                celulas[i][j] = ' ';
+            }
+        }
+    }
+
+    public void imprimir() {
+        System.out.println();
+        for (int i = 0; i < LINHAS; i++) {
+            System.out.print("|");
+            for (int j = 0; j < COLUNAS; j++) {
+                System.out.print(" " + celulas[i][j] + " |");
+            }
+            System.out.println();
+        }
+        System.out.print(" ");
+        for (int j = 0; j < COLUNAS; j++) {
+            System.out.print(j + 1 + "   ");
+        }
+        System.out.println("\n");
+    }
+
+    public boolean colunaCheia(int j) {
+        return celulas[0][j] != ' ';
+    }
+
+    public int soltarPeca(int j, char jogador) {
+        for (int i = LINHAS - 1; i >= 0; i--) {
+            if (celulas[i][j] == ' ') {
+                celulas[i][j] = jogador;
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean verificarVitoria(int i, int j, char jogador) {
+        return contarDirecao(i, j, 0, 1, jogador) + contarDirecao(i, j, 0, -1, jogador) - 1 >= 4
+                || contarDirecao(i, j, 1, 0, jogador) + contarDirecao(i, j, -1, 0, jogador) - 1 >= 4
+                || contarDirecao(i, j, 1, 1, jogador) + contarDirecao(i, j, -1, -1, jogador) - 1 >= 4
+                || contarDirecao(i, j, 1, -1, jogador) + contarDirecao(i, j, -1, 1, jogador) - 1 >= 4;
+    }
+
+    private int contarDirecao(int i, int j, int di, int dj, char jogador) {
+        int count = 0;
+        int li = i;
+        int lj = j;
+        while (li >= 0 && li < LINHAS && lj >= 0 && lj < COLUNAS && celulas[li][lj] == jogador) {
+            count++;
+            li += di;
+            lj += dj;
+        }
+        return count;
+    }
+}
+
