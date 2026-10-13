@@ -6,4 +6,37 @@ public class jogo {
   private final jogador[] jogadores;
   private int IndiceJogadorAtual;
   private final Scanner scanner;
+
+  public Jogo() {
+  this.tabuleiro = new tabuleiro ();
+  this.jogadores = new Jogador[2];
+  this.IndiceJogadorAtual = ;
+  this.scanner = new Scanner(System.in);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
