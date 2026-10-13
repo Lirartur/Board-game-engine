@@ -13,11 +13,11 @@ public class Tabuleiro {
             }
         }
     }
-    // verifica se a celula ta ou nn vazia
+
     public boolean posicaoOcupada(int linha, int coluna) {
         return celulas[linha][coluna] != ' ';
     }
-    // atribui a celula a X ou 0
+
     public void marcar(int linha, int coluna, char jogador) {
         celulas[linha][coluna] = jogador;
     }
@@ -33,7 +33,6 @@ public class Tabuleiro {
     public void exibir() {
         System.out.println();
         for (int i = 0; i < 3; i++) {
-            // i = linha por linha da M(ij)
             System.out.println(" " + celulas[i][0] + " | " + celulas[i][1] + " | " + celulas[i][2] + " ");
             if (i < 2) {
                 System.out.println("---+---+---");
@@ -43,21 +42,18 @@ public class Tabuleiro {
     }
 
     public boolean verificarVitoria(char jogador) {
-        // verifica linhas
         for (int i = 0; i < 3; i++) {
             if (celulas[i][0] == jogador && celulas[i][1] == jogador && celulas[i][2] == jogador) {
                 return true;
             }
         }
 
-        // verifica colunas
         for (int j = 0; j < 3; j++) {
             if (celulas[0][j] == jogador && celulas[1][j] == jogador && celulas[2][j] == jogador) {
                 return true;
             }
         }
 
-        // verifica diagonais
         if (celulas[0][0] == jogador && celulas[1][1] == jogador && celulas[2][2] == jogador) {
             return true;
         }
@@ -67,4 +63,5 @@ public class Tabuleiro {
 
         return false;
     }
+}
 }
