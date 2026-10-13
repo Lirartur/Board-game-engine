@@ -2,5 +2,8 @@ import java.util.Scanner;
 
 public class jogo {
 
-
+  private final Tabuleiro tabuleiro;
+  private final jogador[] jogadores;
+  private int IndiceJogadorAtual;
+  private final Scanner scanner;
 }
