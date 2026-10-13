@@ -1,6 +1,7 @@
+```mermaid
 classDiagram
     class Jogodavelha {
-        +main(args: String[]) void$
+        +main(args: String[])$ void
     }
 
     class Jogo {
@@ -15,10 +16,11 @@ classDiagram
         +inicializar(): void
         +posicaoOcupada(linha: int, coluna: int): boolean
         +marcar(linha: int, coluna: int, jogador: char): void
-        +exibirEsquemaPosicoes(): void$
+        +exibirEsquemaPosicoes()$ void
         +exibir(): void
         +verificarVitoria(jogador: char): boolean
     }
 
     Jogodavelha ..> Jogo : instancia
     Jogo "1" *-- "1" Tabuleiro : composição
+```
