@@ -1,10 +1,10 @@
-# Jogo da Velha — Board Game Engine (Checkpoint 1)
+Jogo da Velha — Board Game Engine (Checkpoint 1)
 
 Trabalho da disciplina de **Linguagem de Programação Orientada a Objetos (LPOO)** na POLI/UPE[cite: 2]. O projeto é uma implementação do jogo da velha, desenvolvido em Java, dividindo as responsabilidades em classes e aplicando conceitos de lógica de programação e orientação a objetos[cite: 8, 10].
 
 ---
 
-## 🏗️ Estrutura do Código
+Estrutura do Código
 
 O código está estruturado por meio de três arquivos principais[cite: 1]:
 
@@ -14,7 +14,7 @@ O código está estruturado por meio de três arquivos principais[cite: 1]:
 
 ---
 
-## 📐 Diagrama de Classes
+Diagrama de Classes
 
 Abaixo está o diagrama de classes da solução desenvolvida para o Checkpoint 1[cite: 10]:
 
