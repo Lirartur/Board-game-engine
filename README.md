@@ -6,7 +6,7 @@ Trabalho da disciplina de **Linguagem de Programação Orientada a Objetos (LPOO
 
 ## 🏗️ Estrutura do Código
 
-O código está estruturado em três arquivos principais[cite: 1]:
+O código está estruturado por meio de três arquivos principais[cite: 1]:
 
 - **`Jogodavelha` (`Main`)**: Classe principal do programa. Contém o método `main`, que atua como ponto de partida da aplicação, sendo responsável por instanciar a classe `Jogo` e chamar o método para iniciá-lo[cite: 22].
 - **`Jogo`**: Atua como o controlador da partida, gerenciando o loop principal do jogo, alternância de turnos, validação e leitura de dados do usuário via terminal.
