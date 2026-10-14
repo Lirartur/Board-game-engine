@@ -11,7 +11,7 @@ O código está estruturado por meio de três arquivos principais[cite: 1]:
 - **`Jogodavelha` (`Main`)**: Classe principal do programa. Contém o método `main`, que atua como ponto de partida da aplicação, sendo responsável por instanciar a classe `Jogo` e chamar o método para iniciá-lo[cite: 22].
 - **`Jogo`**: Atua como o controlador da partida, gerenciando o loop principal do jogo, alternância de turnos, validação e leitura de dados do usuário via terminal.
 - **`Tabuleiro`**: Responsável por gerenciar os dados e a exibição do estado da grade. A grade é uma matriz 3x3 inicializada com espaços vazios.
-
+- **`Como rodar?`**: Você deverá colocar "javac *.java" e após isso, digitar "java Jogodavelha".
 ---
 
 Diagrama de Classes
